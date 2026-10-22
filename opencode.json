@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "sovereigneg": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "SovereignEG",
+      "options": { "baseURL": "https://backend.sovereigneg.com/v1" },
+      "models": {
+        "SovereignEG/Qwen3.8-27B-FP8": {
+          "name": "Qwen3.8 27B (Egypt)",
+          "limit": { "context": 131072, "output": 8192 }
+        },
+        "claude-opus-5.5": {
+          "name": "Claude Opus 5.5",
+          "limit": { "context": 200000, "output": 8192 }
+        },
+        "claude-sonnet-5.5": {
+          "name": "Claude Sonnet 5.5",
+          "limit": { "context": 200000, "output": 8192 }
+        },
+        "gemini-4-argon": {
+          "name": "Gemini 4 Argon",
+          "limit": { "context": 200000, "output": 8192 }
+        }
+      }
+    }
+  }
+}

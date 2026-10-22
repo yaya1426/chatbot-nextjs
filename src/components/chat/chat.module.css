@@ -1,0 +1,274 @@
+.chatApp {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: rgba(237, 237, 237, 0.6);
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+}
+
+.pickerLabel {
+  font-size: 13px;
+  color: rgba(237, 237, 237, 0.6);
+}
+
+.select {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--foreground);
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.composer {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 8px 16px 8px 8px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 15px;
+  line-height: 1.6;
+  resize: none;
+  max-height: 160px;
+  outline: none;
+  font-family: inherit;
+}
+
+.send {
+  border-radius: 999px;
+  border: none;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 8px 18px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.send:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  height: 100%;
+  padding: 0 16px;
+}
+
+.emptyTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.emptyText {
+  font-size: 15px;
+  color: rgba(237, 237, 237, 0.7);
+  max-width: 420px;
+  line-height: 1.8;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* The page is RTL (dir="rtl"), so "start" is the right side. */
+.userRow {
+  align-items: flex-start;
+}
+
+.assistantRow {
+  align-items: flex-end;
+}
+
+.bubble {
+  max-width: min(720px, 100%);
+  padding: 12px 18px;
+  border-radius: 24px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.userBubble {
+  background: var(--foreground);
+  color: var(--background);
+  border-top-right-radius: 8px;
+}
+
+.assistantBubble {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-left-radius: 8px;
+}
+
+.text {
+  font-size: 15px;
+}
+
+.error {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #f87171;
+}
+
+.typing {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.4;
+  animation: blink 1.2s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.8;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px;
+  font-size: 13px;
+  color: rgba(237, 237, 237, 0.6);
+}
+
+.modelName {
+  color: rgba(237, 237, 237, 0.8);
+}
+
+.badge {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+}
+
+.cost {
+  color: rgba(237, 237, 237, 0.6);
+}
+
+@media (prefers-color-scheme: light) {
+  .header,
+  .footer {
+    border-color: rgba(23, 23, 23, 0.08);
+  }
+
+  .subtitle,
+  .pickerLabel,
+  .emptyText,
+  .meta,
+  .cost {
+    color: rgba(23, 23, 23, 0.6);
+  }
+
+  .modelName {
+    color: rgba(23, 23, 23, 0.8);
+  }
+
+  .select {
+    border-color: rgba(23, 23, 23, 0.18);
+  }
+
+  .composer {
+    border-color: rgba(23, 23, 23, 0.18);
+  }
+
+  .assistantBubble {
+    background: rgba(23, 23, 23, 0.04);
+    border-color: rgba(23, 23, 23, 0.1);
+  }
+
+  .badge {
+    border-color: rgba(23, 23, 23, 0.2);
+  }
+}
